@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+*{
+    background-color: black;
+}
+    h1{
+   
+color:white;
+font-size: 50px;
+
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+#inputvalue{
+    background-color: white;
+    height:40px;
+    width:200px
+}
+.btn{
+    background-color: rgb(219, 173, 24);
+    height:40px;
+}
+.main_todo_div{
+    width : 36 rem;
+    display: grid;
+    grid-template-columns: 1fr 0.3fr;
+    align-items: center;
+    height: auto;
+}
+li{
+    margin-right: 70px;
+}
+    </style>
+</head>
+<body>
+   <h1><i>Todo List</i></h1> 
+   <br>
+   <form>
+    <div>
+        <input type="text" id="inputvalue">
+        <button class="btn">Add Todo</button>
+    </div>
+    <section class="todo-list-element">
+       
+        
+     </section>
+   </form>
+   <script>
+    const maintodoelem = document.querySelector(".todo-list-element");
+    const inputvalue =  document.querySelector("#inputvalue");
+
+    const  addTodolist = (e) =>{
+        e.preventDefault();
+       const divelement = document.createElement("div");
+       divelement.classList.add("main_todo_div");
+       divelement.innerHTML =` <li> ${inputvalue.value}</li><button class="deletebutton" style="color:yellow">Delete</button>`
+       maintodoelem.append(divelement);
+      
+    };
+    document.querySelector(".btn").addEventListener("click" ,(e)=>{
+        addTodolist(e);
+    });
+   </script>
+</body>
+</html>
